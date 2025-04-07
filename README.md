@@ -12,10 +12,33 @@ Dado uma linguagem, define uma representação para sua gramática junto com um 
 ## Motivação  
 
 Imagine que você precise interpretar números romanos como `"III"` ou `"IV"` e convertê-los para números decimais.  
+
 Você poderia fazer isso com `if` e `switch`, mas essa abordagem se torna difícil de manter à medida que a gramática cresce.
 
-Com o padrão **Interpreter**, você cria uma classe para cada símbolo (I, V, X...) e define como eles são interpretados.  
-Isso torna o sistema mais modular, reutilizável e fácil de estender.
+O código a seguir representa um cenário sem utilização do interpreter, onde é possível notar violação do princípio Aberto/Fechado e a dificuldade de testar e ampliar o código:
+
+```ts
+function interpretarNumeroRomano(entrada: string): number {
+  if (entrada === "I") return 1;
+  else if (entrada === "II") return 2;
+  else if (entrada === "III") return 3;
+  else if (entrada === "IV") return 4;
+  else if (entrada === "V") return 5;
+  else if (entrada === "VI") return 6;
+  else if (entrada === "VII") return 7;
+  else if (entrada === "VIII") return 8;
+  else if (entrada === "IX") return 9;
+  else if (entrada === "X") return 10;
+  else return 0; // inválido
+}
+
+// Uso
+console.log(interpretarNumeroRomano("IV")); // 4
+```
+
+> 💡
+> Com o padrão **Interpreter**, você cria uma classe para cada símbolo (`I`, `V`, `X`...) e define como eles são interpretados. Isso torna o sistema mais **modular**, **reutilizável** e **fácil de estender**.
+
 
 
 
@@ -27,6 +50,37 @@ Use o padrão **Interpreter** quando:
 - Você quiser criar interpretadores reutilizáveis para expressões simples.
 - A linguagem tem regras simples e bem definidas.
 
+## UML
+
+```mermaid
+classDiagram
+    class Expression {
+        +interpret(context: string): number
+    }
+
+    class OneExpression {
+        +interpret(context: string): number
+    }
+
+    class FourExpression {
+        +interpret(context: string): number
+    }
+
+    class FiveExpression {
+        +interpret(context: string): number
+    }
+
+    class Client {
+        -expressions: Expression[]
+        -input: string
+        -result: number
+    }
+
+    Expression <|-- OneExpression
+    Expression <|-- FourExpression
+    Expression <|-- FiveExpression
+    Client --> Expression : utiliza
+```
 
 
 ## Exemplo Aplicado — Interpretador de Números Romanos
@@ -78,7 +132,7 @@ console.log(`Resultado: ${result}`); // Resultado: 4
 
 ## Estrutura GOF
 
-(importar imagem)
+![Estrutura GOF](./src/interpreter/interpreter_gof.jpg)
 
 
 ## Participantes
