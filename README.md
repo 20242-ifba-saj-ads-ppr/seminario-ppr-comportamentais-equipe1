@@ -105,13 +105,13 @@ console.log(`Resultado: ${result}`); // Resultado: 4
 
 ## Consequências
 
-### ✅ Benefícios
+### Benefícios
 
 - Modulariza regras da linguagem.
 - Fácil de estender com novas expressões.
 - Boa para DSLs e pequenos interpretadores.
 
-### ⚠️ Desvantagens
+### Desvantagens
 
 - Pode gerar muitas classes.
 - Não é eficiente para gramáticas complexas.
