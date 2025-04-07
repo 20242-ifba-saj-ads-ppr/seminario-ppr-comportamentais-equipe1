@@ -27,7 +27,7 @@ Use o padrão **Interpreter** quando:
 - Você quiser criar interpretadores reutilizáveis para expressões simples.
 - A linguagem tem regras simples e bem definidas.
 
----
+
 
 ## Exemplo Aplicado — Interpretador de Números Romanos
 
