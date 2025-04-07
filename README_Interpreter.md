@@ -84,6 +84,10 @@ Expression <|-- ConversionExpression
 
 ---
 
+
+## Estrutura GOF
+![Estrutura GOF](./src/interpreter/interpreter_gof.jpg)
+
 ## Participantes
 
 - **AbstractExpression (`Expression`)**  
