@@ -1,6 +1,6 @@
 package interpreter;
 
-public abstract class UnitExpression {
-    public abstract double toBase(double value);
-    public abstract double fromBase(double value);
+public interface UnitExpression {
+    double toBase(double value);
+    double fromBase(double value);
 }
