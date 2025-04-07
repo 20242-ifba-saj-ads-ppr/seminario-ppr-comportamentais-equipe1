@@ -7,7 +7,6 @@ Define uma dependência um-para-muitos entre objetos, de forma que quando um obj
 - Dependência de publicação-assinatura  
 - Listener  
 
----
 
 ## Motivação  
 
@@ -40,11 +39,9 @@ const sistema = new Sistema();
 sistema.alterarStatus("Pedido confirmado");
 ```
 
-> 💡  
-> Com o padrão **Observer**, os observadores se inscrevem no sujeito, e o sujeito **não precisa saber quem são** nem o que fazem.  
-> Isso torna o sistema mais **flexível**, **desacoplado** e **fácil de manter**.
+> 💡   Com o padrão **Observer**, os observadores se inscrevem no sujeito, e o sujeito **não precisa saber quem são** nem o que fazem. Isso torna o sistema mais **flexível**, **desacoplado** e **fácil de manter**.
 
----
+
 
 ## Aplicabilidade
 
@@ -54,7 +51,6 @@ Use o padrão **Observer** quando:
 - Você quer evitar acoplamento direto entre o sujeito e seus observadores.
 - Um sistema precisa reagir a eventos de forma distribuída.
 
----
 
 ## UML
 
@@ -86,7 +82,7 @@ classDiagram
     ConcreteSubject --> Observer : notifica
 ```
 
----
+
 
 ## Exemplo Aplicado — Notificador de Estado
 
@@ -148,13 +144,12 @@ notifier.attach(new UIUpdater());
 notifier.setMessage("Pedido confirmado");
 ```
 
----
+
 
 ## Estrutura GOF
 
-![Estrutura GOF](./src/observer/observer_gof.jpg)
+![Estrutura GOF](./src/observer/observer_GOF.jpg)
 
----
 
 ## Participantes
 
@@ -170,14 +165,14 @@ notifier.setMessage("Pedido confirmado");
 - **ConcreteObserver**  
   Implementa `update()` e reage às mudanças no sujeito.
 
----
+
 
 ## Colaborações
 
 - O **Subject** mantém a lista de **Observers** e notifica todos quando seu estado muda.
 - Os **Observers** reagem conforme sua própria lógica, sem o Subject saber o que eles fazem.
 
----
+
 
 ## Consequências
 
@@ -192,7 +187,7 @@ notifier.setMessage("Pedido confirmado");
 - Pode haver notificações em cascata inesperadas.
 - Não há controle da ordem de notificação dos observadores.
 
----
+
 
 ## Implementação
 
@@ -201,21 +196,21 @@ notifier.setMessage("Pedido confirmado");
 3. Implemente `ConcreteObservers` com a lógica de reação.
 4. Faça o registro e notificação conforme mudanças de estado.
 
----
+
 
 ## Padrões Relacionados
 
 - **Mediator**: Pode encapsular a notificação central.
 - **Event Bus / Publisher-Subscriber**: Abstrações mais flexíveis do mesmo conceito.
 
----
+
 
 ## Conclusão
 
 O padrão **Observer** é ideal quando várias partes da aplicação precisam reagir a mudanças de estado de forma desacoplada.  
 É muito usado em interfaces gráficas, eventos de sistemas e comunicação assíncrona entre componentes.
 
----
+
 
 ## Referências
 
